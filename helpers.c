@@ -50,3 +50,11 @@ void free_stack(stack_t **stack)
         *stack = temp;
     }
 }
+
+/**
+ * remove_comments - Removes comments from a command line input.
+ * @lineptr: Pointer to the string containing the command line input.
+ *
+ * Return: Pointer to a newly allocated string without the comments,
+ *         NULL if lineptr is NULL or an empty string.
+ */

@@ -4,10 +4,12 @@ global_t *interpreter;
 
 int main(int argc, char **argv)
 {
-    FILE *monty_file = NULL;
-    char line[1000];
+    FILE *monty_file;
     int line_number = 0;
     stack_t *stack = NULL;
+    char *lineptr = NULL;
+    size_t len = 0;
+    ssize_t read;
 
     interpreter = malloc(sizeof(global_t));
     if (argc != 2)
@@ -24,14 +26,15 @@ int main(int argc, char **argv)
     }
 
     interpreter->file = monty_file;
-    while ((fgets(line, sizeof(line), monty_file)) != NULL)
+    while ((read = getline(&lineptr, &len, monty_file) != -1))
     {
-
-        interpreter->line = strtok(line, "\n");
+        printf("%s", lineptr);
+        interpreter->line = strtok(lineptr, "$\n");
 
         interpreter->line_number = line_number++;
         interprete_line(&stack);
     }
+    free(lineptr);
     fclose(monty_file);
     free_stack(&stack);
     return (0);
@@ -53,9 +56,9 @@ int interprete_line(stack_t **stack)
     char *opcode;
     char *intger;
 
-    opcode = strtok(interpreter->line, " ");
+    opcode = strtok(interpreter->line, " \t$\n");
 
-    intger = (strtok(NULL, " "));
+    intger = (strtok(NULL, " \t$\n"));
     if (intger != NULL)
         interpreter->intger = atoi(intger);
     while (monty_opcode[i].opcode)
