@@ -32,7 +32,7 @@ int main(int argc, char **argv)
         interpreter->line_number = ++line_number;
         if (read > 1)
         {
-            interpreter->line = strtok(lineptr, "\n");
+            interpreter->line = strtok(lineptr, "$\n");
             interprete_line(&stack);
         }
     }
@@ -58,17 +58,10 @@ int interprete_line(stack_t **stack)
     char *opcode;
     char *intger;
 
-    opcode = strtok(interpreter->line, " $");
-    intger = (strtok(NULL, " $"));
+    opcode = strtok(interpreter->line, " ");
+    intger = (strtok(NULL, "$ "));
 
-    if (intger == NULL || is_digit(intger))
-        interpreter->intger = atoi(intger);
-    else
-    {
-        fclose(interpreter->file);
-        fprintf(stderr, "L%i:usage: push integer\n", interpreter->line_number);
-        exit(EXIT_FAILURE);
-    }
+    interpreter->intger = intger;
 
     while (opcode != NULL)
     {

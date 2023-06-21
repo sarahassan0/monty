@@ -2,11 +2,13 @@
       push 1$
          push      2$
 
-push 3$
-push 
-pall$
-push 22$
-            pall
+push 3
 
-push ewww
+
 pall$
+
+push e
+pall
+
+push 3
+pall$ 

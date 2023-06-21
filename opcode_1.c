@@ -6,13 +6,7 @@ void push(stack_t **stack, unsigned int line_number)
     stack_t **head;
     stack_t *new;
     head = stack;
-    if (interpreter->intger == -1)
-    {
-        fclose(interpreter->file);
-        free_stack(head);
-        fprintf(stderr, "L%u: usage: push integer\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+
     new = malloc(sizeof(stack_t));
 
     if (new == NULL)
@@ -23,12 +17,32 @@ void push(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 
-    new->n = interpreter->intger;
+    if (interpreter->intger != NULL)
+    {
+
+        if (is_digit(interpreter->intger))
+            new->n = atoi(interpreter->intger);
+        else
+        {
+            fclose(interpreter->file);
+            free_stack(head);
+            fprintf(stderr, "L%u: usage: push integer\n", line_number);
+            exit(EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        fclose(interpreter->file);
+        free_stack(head);
+        fprintf(stderr, "L%u: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
+    }
     if (*head == NULL)
     {
         *head = new;
         return;
     }
+
     new->next = (*head);
 
     new->next->prev = new;

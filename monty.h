@@ -26,7 +26,7 @@ typedef struct global_s
     FILE *file;
     char *line;
     unsigned int line_number;
-    int intger;
+    char *intger;
 } global_t;
 
 extern global_t *interpreter;
