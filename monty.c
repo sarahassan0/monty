@@ -26,13 +26,15 @@ int main(int argc, char **argv)
     }
 
     interpreter->file = monty_file;
-    while ((read = getline(&lineptr, &len, monty_file) != -1))
+    while ((read = getline(&lineptr, &len, monty_file)) != -1)
     {
-        printf("%s", lineptr);
-        interpreter->line = strtok(lineptr, "$\n");
 
-        interpreter->line_number = line_number++;
-        interprete_line(&stack);
+        interpreter->line_number = ++line_number;
+        if (read > 1)
+        {
+            interpreter->line = strtok(lineptr, "\n");
+            interprete_line(&stack);
+        }
     }
     free(lineptr);
     fclose(monty_file);
@@ -56,12 +58,13 @@ int interprete_line(stack_t **stack)
     char *opcode;
     char *intger;
 
-    opcode = strtok(interpreter->line, " ");
-
+    opcode = strtok(interpreter->line, " $");
     intger = (strtok(NULL, " "));
+
     if (intger != NULL)
         interpreter->intger = atoi(intger);
-    while (monty_opcode[i].opcode)
+
+    while (opcode != NULL)
     {
         if (strcmp(opcode, monty_opcode[i].opcode) == 0)
         {
