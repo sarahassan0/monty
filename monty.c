@@ -41,11 +41,11 @@ int interprete_line(stack_t **stack)
     instruction_t monty_opcode[] = {
         {"push", push},
         {"pall", pall},
-        // {"pint", pint},
-        //     {"pop", pop},
-        //     {"swap", swap},
-        //     {"add", add},
-        //     {"nop", nop},
+        {"pint", pint},
+        {"pop", pop},
+        {"swap", swap},
+        {"add", add},
+        {"nop", nop},
         {NULL, NULL}};
 
     char *opcode;
