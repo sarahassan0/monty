@@ -52,7 +52,7 @@ int interprete_line(stack_t **stack)
 
     opcode = strtok(interpreter->line, " ");
     intger = (strtok(NULL, " "));
-
+    (void)intger;
     while (monty_opcode != NULL)
     {
         if (opcode == monty_opcode[i].opcode)
