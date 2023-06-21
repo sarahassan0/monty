@@ -7,7 +7,7 @@ push 3
 
 pall$
 
-push e
+push 
 pall
 
 push 3
