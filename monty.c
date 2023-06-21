@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     while ((fgets(line, sizeof(line), monty_file)) != NULL)
     {
 
-        interpreter->line = strtok(line, "\n");
+        interpreter->line = strtok(line, "$\n");
         interpreter->line_number = line_number++;
         interprete_line(&stack);
     }
