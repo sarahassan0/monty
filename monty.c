@@ -61,16 +61,13 @@ int interprete_line(stack_t **stack)
     opcode = strtok(interpreter->line, " $");
     intger = (strtok(NULL, " $"));
 
-    if (intger != NULL)
+    if (intger == NULL || is_digit(intger))
+        interpreter->intger = atoi(intger);
+    else
     {
-        if (is_digit(intger))
-            interpreter->intger = atoi(intger);
-        else
-        {
-            fclose(interpreter->file);
-            fprintf(stderr, "L%i: push integer\n", interpreter->line_number);
-            exit(EXIT_FAILURE);
-        }
+        fclose(interpreter->file);
+        fprintf(stderr, "L%i:usage: push integer\n", interpreter->line_number);
+        exit(EXIT_FAILURE);
     }
 
     while (opcode != NULL)
