@@ -27,11 +27,13 @@ int main(int argc, char **argv)
     while ((fgets(line, sizeof(line), monty_file)) != NULL)
     {
 
-        interpreter->line = strtok(line, "$\n");
+        interpreter->line = strtok(line, "\n");
+
         interpreter->line_number = line_number++;
         interprete_line(&stack);
     }
     fclose(monty_file);
+    free_stack(&stack);
     return (0);
 }
 
@@ -52,6 +54,7 @@ int interprete_line(stack_t **stack)
     char *intger;
 
     opcode = strtok(interpreter->line, " ");
+
     intger = (strtok(NULL, " "));
     if (intger != NULL)
         interpreter->intger = atoi(intger);

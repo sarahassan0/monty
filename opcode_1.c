@@ -9,6 +9,7 @@ void push(stack_t **stack, unsigned int line_number)
     if (interpreter->intger == -1)
     {
         fclose(interpreter->file);
+        free_stack(head);
         fprintf(stderr, "L%u: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
@@ -17,6 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
     if (new == NULL)
     {
         fclose(interpreter->file);
+        free_stack(head);
         fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
