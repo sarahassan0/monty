@@ -59,10 +59,19 @@ int interprete_line(stack_t **stack)
     char *intger;
 
     opcode = strtok(interpreter->line, " $");
-    intger = (strtok(NULL, " "));
+    intger = (strtok(NULL, " $"));
 
     if (intger != NULL)
-        interpreter->intger = atoi(intger);
+    {
+        if (is_digit(intger))
+            interpreter->intger = atoi(intger);
+        else
+        {
+            fclose(interpreter->file);
+            fprintf(stderr, "L%i: push integer\n", interpreter->line_number);
+            exit(EXIT_FAILURE);
+        }
+    }
 
     while (opcode != NULL)
     {

@@ -58,3 +58,18 @@ void free_stack(stack_t **stack)
  * Return: Pointer to a newly allocated string without the comments,
  *         NULL if lineptr is NULL or an empty string.
  */
+
+int is_digit(char *string)
+{
+    if (!string || *string == '\0')
+        return (0);
+    if (*string == '-')
+        string++;
+    while (*string)
+    {
+        if (isdigit(*string) == 0)
+            return (0);
+        string++;
+    }
+    return (1);
+}
