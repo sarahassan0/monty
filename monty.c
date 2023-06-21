@@ -56,9 +56,9 @@ int interprete_line(stack_t **stack)
     char *opcode;
     char *intger;
 
-    opcode = strtok(interpreter->line, " \t$\n");
+    opcode = strtok(interpreter->line, " ");
 
-    intger = (strtok(NULL, " \t$\n"));
+    intger = (strtok(NULL, " "));
     if (intger != NULL)
         interpreter->intger = atoi(intger);
     while (monty_opcode[i].opcode)
