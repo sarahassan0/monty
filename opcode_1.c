@@ -6,7 +6,7 @@ void push(stack_t **stack, unsigned int line_number)
     stack_t **head;
     stack_t *new;
     head = stack;
-    if (interpreter->intger)
+    if (interpreter->intger == -1)
     {
         fclose(interpreter->file);
         fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -27,40 +27,47 @@ void push(stack_t **stack, unsigned int line_number)
         *head = new;
         return;
     }
-    new->next = (*head)->next;
-    if (*head != NULL)
-        (*head)->prev = new;
+    new->next = (*head);
+
+    new->next->prev = new;
     *head = new;
 }
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-}
-void pint(stack_t **stack, unsigned int line_number)
-{
-    (void)stack;
-    (void)line_number;
-}
-void swap(stack_t **stack, unsigned int line_number)
-{
-    (void)stack;
-    (void)line_number;
-}
-void add(stack_t **stack, unsigned int line_number)
-{
-    (void)stack;
-    (void)line_number;
-}
-void pop(stack_t **stack, unsigned int line_number)
-{
-    (void)stack;
-    (void)line_number;
-}
+    if (*stack == NULL)
+        return;
 
-void nop(stack_t **stack, unsigned int line_number)
-{
-    (void)stack;
-    (void)line_number;
+    stack_t *head = *stack;
+    while (head != NULL)
+    {
+        printf("%d\n", head->n);
+        head = head->next;
+    }
 }
+// void pint(stack_t **stack, unsigned int line_number)
+// {
+//     (void)stack;
+//     (void)line_number;
+// }
+// void swap(stack_t **stack, unsigned int line_number)
+// {
+//     (void)stack;
+//     (void)line_number;
+// }
+// void add(stack_t **stack, unsigned int line_number)
+// {
+//     (void)stack;
+//     (void)line_number;
+// }
+// void pop(stack_t **stack, unsigned int line_number)
+// {
+//     (void)stack;
+//     (void)line_number;
+// }
+
+// void nop(stack_t **stack, unsigned int line_number)
+// {
+//     (void)stack;
+//     (void)line_number;
+// }

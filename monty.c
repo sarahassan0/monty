@@ -41,11 +41,11 @@ int interprete_line(stack_t **stack)
     instruction_t monty_opcode[] = {
         {"push", push},
         {"pall", pall},
-        {"pint", pint},
-        {"pop", pop},
-        {"swap", swap},
-        {"add", add},
-        {"nop", nop},
+        // {"pint", pint},
+        //     {"pop", pop},
+        //     {"swap", swap},
+        //     {"add", add},
+        //     {"nop", nop},
         {NULL, NULL}};
 
     char *opcode;
@@ -55,11 +55,13 @@ int interprete_line(stack_t **stack)
     intger = (strtok(NULL, " "));
     if (intger != NULL)
         interpreter->intger = atoi(intger);
-    while (monty_opcode != NULL)
+    while (monty_opcode[i].opcode)
     {
-        if (opcode == monty_opcode[i].opcode)
+        if (strcmp(opcode, monty_opcode[i].opcode) == 0)
         {
+
             monty_opcode[i].f(stack, interpreter->line_number);
+            return -1;
         };
         i++;
     }
