@@ -23,6 +23,7 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
+    interpreter->file = monty_file;
     while ((fgets(line, sizeof(line), monty_file)) != NULL)
     {
 
@@ -52,7 +53,8 @@ int interprete_line(stack_t **stack)
 
     opcode = strtok(interpreter->line, " ");
     intger = (strtok(NULL, " "));
-    (void)intger;
+    if (intger != NULL)
+        interpreter->intger = atoi(intger);
     while (monty_opcode != NULL)
     {
         if (opcode == monty_opcode[i].opcode)
@@ -62,6 +64,7 @@ int interprete_line(stack_t **stack)
         i++;
     }
 
+    fclose(interpreter->file);
     fprintf(stderr, "L%i: unknown instruction %s\n", interpreter->line_number, opcode);
     exit(EXIT_FAILURE);
 

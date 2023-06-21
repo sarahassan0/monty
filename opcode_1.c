@@ -2,9 +2,37 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+
+    stack_t **head;
+    stack_t *new;
+    head = stack;
+    if (interpreter->intger)
+    {
+        fclose(interpreter->file);
+        fprintf(stderr, "L%u: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    new = malloc(sizeof(stack_t));
+
+    if (new == NULL)
+    {
+        fclose(interpreter->file);
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    new->n = interpreter->intger;
+    if (*head == NULL)
+    {
+        *head = new;
+        return;
+    }
+    new->next = (*head)->next;
+    if (*head != NULL)
+        (*head)->prev = new;
+    *head = new;
 }
+
 void pall(stack_t **stack, unsigned int line_number)
 {
     (void)stack;

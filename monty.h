@@ -23,8 +23,10 @@
  */
 typedef struct global_s
 {
+    FILE *file;
     char *line;
-    int line_number;
+    unsigned int line_number;
+    int intger;
 } global_t;
 
 extern global_t *interpreter;
@@ -62,6 +64,7 @@ typedef struct instruction_s
 /* Functions */
 
 int interprete_line(stack_t **stack);
+int _atoi(char *s);
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
