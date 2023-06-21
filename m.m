@@ -1,13 +1,13 @@
 
       push 1$
-         push      2$
+         push      -2$
 
 push 3
 
+pu
 
 pall$
 
-push 
 pall
 
 push 3

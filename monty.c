@@ -62,8 +62,7 @@ int interprete_line(stack_t **stack)
     intger = (strtok(NULL, "$ "));
 
     interpreter->intger = intger;
-
-    while (opcode != NULL)
+    while (monty_opcode[i].opcode && opcode != NULL)
     {
         if (strcmp(opcode, monty_opcode[i].opcode) == 0)
         {
@@ -75,7 +74,7 @@ int interprete_line(stack_t **stack)
     }
 
     fclose(interpreter->file);
-    fprintf(stderr, "L%i: unknown instruction %s\n", interpreter->line_number, opcode);
+    fprintf(stderr, "L%u: unknown instruction %s\n", interpreter->line_number, opcode);
     exit(EXIT_FAILURE);
 
     return (0);
