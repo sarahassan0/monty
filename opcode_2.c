@@ -21,7 +21,7 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap - swaps the top two elements of the stack.
+ * swap - swaps the top two elements of the stack
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
