@@ -72,6 +72,11 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
+/**
+ * sub - subtracts the top element of the stack from the second top element of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void sub(stack_t **stack, unsigned int line_number)
 {
 	
