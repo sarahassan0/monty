@@ -80,7 +80,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		fclose(interpreter->file);
-		free(interpreter->op);
+		free(interpreter->line);
 		free(interpreter);
 		exit(EXIT_FAILURE);
 	}
@@ -107,6 +107,6 @@ void add(stack_t **stack, unsigned int line_number)
  */
 
 void nop(__attribute__((unused)) stack_t **stack,
-	 __attribute__((unused)) unsigned int line_number)
+		 __attribute__((unused)) unsigned int line_number)
 {
 }

@@ -14,7 +14,7 @@
 /**
  * struct global_s - struct for global monty interpreter.
  * @file:..
- * @op: ..
+ * @line: ..
  * @line_number: ..
  * @intger: ..
  *
@@ -23,7 +23,7 @@
 typedef struct global_s
 {
 	FILE *file;
-	char *op;
+	char *line;
 	unsigned int line_number;
 	char *intger;
 } global_t;

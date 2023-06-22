@@ -1,3 +1,3 @@
 push 1
-pop
-pop
+push 4
+pall

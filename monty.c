@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 		interpreter->line_number = ++line_number;
 		if (read > 1)
 		{
-			interpreter->op = strtok(lineptr, "\t\n");
+			interpreter->line = strtok(lineptr, "\t\n");
 
 			interprete_line(&stack);
 		}
@@ -74,7 +74,7 @@ int interprete_line(stack_t **stack)
 	char *opcode;
 	char *intger;
 
-	opcode = strtok(interpreter->op, " ");
+	opcode = strtok(interpreter->line, " ");
 	if (!opcode)
 		return (0);
 	intger = strtok(NULL, " ");
