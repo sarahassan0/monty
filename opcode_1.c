@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * push -  pushes an element to the stack.
- * @stack: the head of the linked list in stack.
- * @line_number: the line number.
+ * push - pushes an element to the stack.
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
  */
 
 void push(stack_t **stack, unsigned int line_number)
