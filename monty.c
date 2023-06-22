@@ -53,18 +53,24 @@ int main(int argc, char **argv)
 	return (0);
 }
 
+/**
+ * interprete_line - Monty Interpreter.
+ * @stack: pointers to the stack.
+ * Return: 0 on success, -1 on error.
+ */
+
 int interprete_line(stack_t **stack)
 {
 	int i = 0;
 	instruction_t monty_opcode[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}};
+	    {"push", push},
+	    {"pall", pall},
+	    {"pint", pint},
+	    {"pop", pop},
+	    {"swap", swap},
+	    {"add", add},
+	    {"nop", nop},
+	    {NULL, NULL}};
 
 	char *opcode;
 	char *intger;
@@ -89,7 +95,7 @@ int interprete_line(stack_t **stack)
 	free_stack(stack);
 	fclose(interpreter->file);
 	fprintf(stderr, "L%u: unknown instruction %s\n",
-			interpreter->line_number, opcode);
+		interpreter->line_number, opcode);
 	exit(EXIT_FAILURE);
 
 	return (0);

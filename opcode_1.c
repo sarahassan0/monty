@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pint -  pushes an element to the stack.
+ * push -  pushes an element to the stack.
  * @stack: the head of the linked list in stack.
  * @line_number: the line number.
  */
@@ -106,6 +106,7 @@ void add(stack_t **stack, unsigned int line_number)
  *
  */
 
-void nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void nop(__attribute__((unused)) stack_t **stack,
+	 __attribute__((unused)) unsigned int line_number)
 {
 }
