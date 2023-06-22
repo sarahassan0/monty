@@ -42,9 +42,7 @@ void push(stack_t **stack, unsigned int line_number)
         *head = new;
         return;
     }
-
     new->next = (*head);
-
     new->next->prev = new;
     *head = new;
 }
