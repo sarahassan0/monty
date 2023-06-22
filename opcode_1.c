@@ -59,7 +59,7 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
         head = head->next;
     }
 }
-#include "monty.h"
+
 /**
  * pint - prints the value at the top of the stack, followed by a new line.
  * @stack: the head of the linked list in stack
@@ -85,8 +85,6 @@ void add(stack_t **stack, unsigned int line_number)
     (void)stack;
     (void)line_number;
 }
-
-#include "monty.h"
 
 /**
  * nop -
