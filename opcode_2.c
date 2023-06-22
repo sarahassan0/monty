@@ -94,5 +94,5 @@ void sub(stack_t **stack, unsigned int line_number)
 	result = temp->next->n - temp->n;
 	temp->next->n = result;
 	*stack = temp->next;
-	free(temp);
+	pop(stack, line_number);
 }
