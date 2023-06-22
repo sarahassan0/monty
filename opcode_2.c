@@ -97,3 +97,69 @@ void sub(stack_t **stack, unsigned int line_number)
 	*stack = temp->next;
 	free(temp);
 }
+
+/**
+ * sub - subtracts the top element from the second top element of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
+void divtion(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	int result;
+
+	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		fclose(interpreter->file);
+		free(interpreter->line);
+		free(interpreter);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	if (temp->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		fclose(interpreter->file);
+		free_stack(stack);
+		free(interpreter->line);
+		free(interpreter);
+		exit(EXIT_FAILURE);
+	}
+	result = temp->next->n / temp->n;
+	temp->next->n = result;
+	*stack = temp->next;
+	free(temp);
+}
+
+void mul(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+void mod(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+void roter(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
