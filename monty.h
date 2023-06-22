@@ -12,12 +12,12 @@
 /* Structs */
 
 /**
- * struct global - struct for global info
- * @argv:pointer to array of argv.
- * @env: pointer to array of environment variables.
- * @cmd: pointer to array of splitted command.
- * @cmds_counter: commands counter.
- * @final_status: final exit status of the shell
+ * struct global_s - struct for global monty interpreter.
+ * @file:..
+ * @line: ..
+ * @op: ..
+ * @line_number: ..
+ * @intger: ..
  *
  * Description:  struct for global info of the shell
  */
@@ -41,6 +41,7 @@ extern global_t *interpreter;
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
 	int n;
@@ -56,6 +57,7 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct instruction_s
 {
 	char *opcode;
@@ -68,6 +70,8 @@ int interprete_line(stack_t **stack);
 int _atoi(char *s);
 void free_stack(stack_t **stack);
 int is_digit(char *string);
+
+/* Monty Opcode Functions */
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
