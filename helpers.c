@@ -45,9 +45,9 @@ void free_stack(stack_t **stack)
 
     while (*stack)
     {
-        temp = (*stack)->next;
-        free(*stack);
-        *stack = temp;
+        temp = (*stack);
+        (*stack) = (*stack)->next;
+        free(temp);
     }
 }
 
