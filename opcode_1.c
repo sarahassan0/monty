@@ -51,7 +51,7 @@ void push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall - prints all the values on the stack, starting from the top.
+ * pall - prints all the values on the stack, starting from the top
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
