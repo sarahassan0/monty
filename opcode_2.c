@@ -39,7 +39,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	{
 		temp->next->prev = *stack;
 		temp->prev = NULL;
-		temp->next = *stacl;
+		temp->next = *stack;
 		(*stack)->prev = temp;
 		*stack = temp;
 	}
