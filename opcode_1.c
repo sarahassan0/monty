@@ -88,24 +88,6 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
-/**
- * add - adds the top two elements of the stack
- * @stack: the head of the linked list in stack
- * @line_number: the line number
- */
-void add(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-
-/**
- * nop - doesn’t do anything.
- * @stack: the head of the linked list in stack.
- * @line_number: the line number.
- *
- */
-
 void nop(__attribute__((unused)) stack_t **stack,
 		 __attribute__((unused)) unsigned int line_number)
 {
