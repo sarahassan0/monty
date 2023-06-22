@@ -89,7 +89,7 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * add - adds the top two elements of the stack.
+ * add - adds the top two elements of the stack
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
