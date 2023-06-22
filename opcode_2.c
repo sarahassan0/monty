@@ -79,7 +79,7 @@ void nop(stack_t **stack, unsigned int line_number)
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
-	int result = 0;
+	int result;
 	stack_t *temp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
@@ -94,5 +94,5 @@ void sub(stack_t **stack, unsigned int line_number)
 	result = temp->next->n - temp->n;
 	temp->next->n = result;
 	*stack = temp->next;
-	pop(stack, line_number);
+	free(temp);
 }
