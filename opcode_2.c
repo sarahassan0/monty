@@ -1,46 +1,4 @@
 #include "monty.h"
-/**
- * pop - removes the top element of the stack
- * @stack: the head of the linked list in stack
- * @line_number: the line number
- */
-void pop(stack_t **stack, unsigned int line_number)
-{
-	__attribute__((unused)) stack_t *temp;
-	if (*stack == NULL)
-	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
-		fclose(interpreter->file);
-		free(interpreter->line);
-		free(interpreter);
-		exit(EXIT_FAILURE);
-	}
-	temp = *stack;
-	*stack = (*stack)->next;
-	free(temp);
-}
-
-/**
- * swap - swaps the top two elements of the stack
- * @stack: the head of the linked list in stack
- * @line_number: the line number
- */
-void swap(stack_t **stack, unsigned int line_number)
-{
-	stack_t *temp;
-	int tmp;
-
-	temp = *stack;
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
-	tmp = temp->n;
-	temp->n = temp->next->n;
-	temp->next->n = tmp;
-}
 
 /**
  * add - adds the top two elements of the stack
@@ -135,13 +93,53 @@ void divtion(stack_t **stack, unsigned int line_number)
 
 void mul(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *temp;
+	int result;
+
 	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fclose(interpreter->file);
+		free(interpreter->line);
+		free(interpreter);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	result = temp->next->n * temp->n;
+	temp->next->n = result;
+	*stack = temp->next;
+	free(temp);
 }
+
 void mod(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *temp;
+	int result;
+
 	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		fclose(interpreter->file);
+		free(interpreter->line);
+		free(interpreter);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	if (temp->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		fclose(interpreter->file);
+		free_stack(stack);
+		free(interpreter->line);
+		free(interpreter);
+		exit(EXIT_FAILURE);
+	}
+	result = temp->next->n % temp->n;
+	temp->next->n = result;
+	*stack = temp->next;
+	free(temp);
 }
 void pchar(stack_t **stack, unsigned int line_number)
 {
