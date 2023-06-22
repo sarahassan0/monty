@@ -70,7 +70,7 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 }
 
 /**
- * pint - prints the value at the top of the stack, followed by a new line.
+ * pint - prints the value at the top of the stack, followed by a new line
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
