@@ -38,9 +38,11 @@ int main(int argc, char **argv)
             interprete_line(&stack);
         }
     }
-    free(lineptr);
-    free_stack(&stack);
     fclose(monty_file);
+    free(lineptr);
+    if (stack != NULL)
+        free_stack(&stack);
+    free(interpreter);
     return (0);
 }
 

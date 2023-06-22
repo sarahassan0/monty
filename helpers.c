@@ -45,12 +45,12 @@ void free_stack(stack_t **stack)
 
     while (*stack)
     {
-        temp = (*stack);
-        (*stack) = (*stack)->next;
-        free(temp);
+        temp = (*stack)->next;
+        free(*stack);
+        *stack = temp;
     }
+    *stack = NULL;
 }
-
 /**
  * remove_comments - Removes comments from a command line input.
  * @lineptr: Pointer to the string containing the command line input.
