@@ -12,11 +12,9 @@ void push(stack_t **stack, unsigned int line_number)
     if (new == NULL)
     {
         fclose(interpreter->file);
-        free_stack(head);
         fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
-
     if (interpreter->intger != NULL)
     {
 
@@ -24,6 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
             new->n = atoi(interpreter->intger);
         else
         {
+            free(new);
             fclose(interpreter->file);
             free_stack(head);
             fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -32,6 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
     }
     else
     {
+        free(new);
         fclose(interpreter->file);
         free_stack(head);
         fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -61,11 +61,27 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
         head = head->next;
     }
 }
+#include "monty.h"
+/**
+ * pop - removes the top element of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ * test
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+    stack_t *temp;
+
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    temp = *stack;
+    *stack = (*stack)->next;
+    free(temp);
 }
+
 void add(stack_t **stack, unsigned int line_number)
 {
     (void)stack;

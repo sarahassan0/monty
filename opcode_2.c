@@ -6,7 +6,7 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-        stack_t *temp;
+        __attribute__((unused)) stack_t *temp;
 
         if (*stack == NULL)
         {
@@ -15,7 +15,6 @@ void pop(stack_t **stack, unsigned int line_number)
         }
         temp = *stack;
         *stack = (*stack)->next;
-        free(temp);
 }
 
 /**
@@ -25,17 +24,17 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t temp;
-	int tmp;
+        stack_t *temp;
+        int tmp;
 
-	temp = *stack;
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+        temp = *stack;
+        if (*stack == NULL || (*stack)->next == NULL)
+        {
+                fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+                exit(EXIT_FAILURE);
+        }
 
-	tmp = temp->n;
-	temp->n = temp->next->n;
-	temp->next->n = tmp;
+        tmp = temp->n;
+        temp->n = temp->next->n;
+        temp->next->n = tmp;
 }
