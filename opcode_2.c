@@ -63,7 +63,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 /**
  * nop - doesn’t do anything
- *
+ * @stack: the head of the linked list in stack
  *
  */
 void nop(stack_t **stack, unsigned int line_number)
