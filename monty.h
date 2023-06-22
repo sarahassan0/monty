@@ -25,6 +25,7 @@ typedef struct global_s
 {
     FILE *file;
     char *line;
+    char *op;
     unsigned int line_number;
     char *intger;
 } global_t;
