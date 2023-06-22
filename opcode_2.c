@@ -57,5 +57,7 @@ void add(stack_t **stack, unsigned int line_number)
 		free(interpreter);
 		exit(EXIT_FAILURE);
 	}
+	(*stack)->next->n += (*stack)->n;
+	pop(stack, line_number);
 }
 
