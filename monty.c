@@ -82,7 +82,7 @@ int interprete_line(stack_t **stack)
 	char *intger;
 
 	opcode = strtok(interpreter->line, " ");
-	if (!opcode)
+	if (!opcode || opcode[0] == '#')
 		return (0);
 	intger = strtok(NULL, " ");
 	interpreter->intger = intger;
