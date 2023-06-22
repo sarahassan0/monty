@@ -91,18 +91,15 @@ int interprete_line(stack_t **stack)
 	{
 		if (strcmp(opcode, monty_opcode[i].opcode) == 0)
 		{
-
 			monty_opcode[i].f(stack, interpreter->line_number);
 			return (-1);
 		};
 		i++;
 	}
-
 	free_stack(stack);
 	fclose(interpreter->file);
 	fprintf(stderr, "L%u: unknown instruction %s\n",
 			interpreter->line_number, opcode);
 	exit(EXIT_FAILURE);
-
 	return (0);
 }

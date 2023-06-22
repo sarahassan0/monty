@@ -7,28 +7,28 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp;
-    int tmp;
+	stack_t *temp;
+	int tmp;
 
-    temp = *stack;
-    if (*stack == NULL || (*stack)->next == NULL)
-    {
-        fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	temp = *stack;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    tmp = temp->n;
-    temp->n = temp->next->n;
-    temp->next->n = tmp;
+	tmp = temp->n;
+	temp->n = temp->next->n;
+	temp->next->n = tmp;
 }
 
 void rotl(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 }
 void roter(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 }
