@@ -39,7 +39,6 @@ int main(int argc, char **argv)
 		interpreter->line_number = ++line_number;
 		if (read > 1)
 		{
-			interpreter->line = lineptr;
 			interpreter->op = strtok(lineptr, "\t\n");
 
 			interprete_line(&stack);
@@ -63,14 +62,14 @@ int interprete_line(stack_t **stack)
 {
 	int i = 0;
 	instruction_t monty_opcode[] = {
-	    {"push", push},
-	    {"pall", pall},
-	    {"pint", pint},
-	    {"pop", pop},
-	    {"swap", swap},
-	    {"add", add},
-	    {"nop", nop},
-	    {NULL, NULL}};
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL}};
 
 	char *opcode;
 	char *intger;
@@ -95,7 +94,7 @@ int interprete_line(stack_t **stack)
 	free_stack(stack);
 	fclose(interpreter->file);
 	fprintf(stderr, "L%u: unknown instruction %s\n",
-		interpreter->line_number, opcode);
+			interpreter->line_number, opcode);
 	exit(EXIT_FAILURE);
 
 	return (0);
