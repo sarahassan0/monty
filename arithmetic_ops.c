@@ -141,23 +141,3 @@ void mod(stack_t **stack, unsigned int line_number)
 	*stack = temp->next;
 	free(temp);
 }
-void pchar(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-void pstr(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-void rotl(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-void roter(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
