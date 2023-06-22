@@ -41,3 +41,15 @@ void swap(stack_t **stack, unsigned int line_number)
 	temp->n = temp->next->n;
 	temp->next->n = tmp;
 }
+
+/**
+ * add - adds the top two elements of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+
