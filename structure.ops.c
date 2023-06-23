@@ -53,7 +53,7 @@ void rotl(stack_t **stack, unsigned int line_number)
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
-void roter(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
 	(void)line_number;
