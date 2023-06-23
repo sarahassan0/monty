@@ -58,18 +58,18 @@ void roter(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 	(void)line_number;
 
+	temp = *stack;
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		return;
 	}
-	temp = *stack;
-
-	for (; temp->next != NULL; temp = temp->next)
-		;
-
-	temp->prev->next = NULL;
+	while (temp->next)
+	{
+		temp = temp->next;
+	}
 	temp->next = *stack;
+	temp->prev->next = NULL;
 	temp->prev = NULL;
 	(*stack)->prev = temp;
-	*stack = temp;
+	(*stack) = temp;
 }
