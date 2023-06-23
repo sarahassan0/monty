@@ -37,8 +37,8 @@ void rotl(stack_t **stack, unsigned int line_number)
 	{
 		return;
 	}
-	temp1 = (*doubly)->next;
-	temp2 = *doubly;
+	temp1 = (*stack)->next;
+	temp2 = *stack;
 	for (; temp2->next != NULL; temp2 = temp2->next)
 		;
 	temp1->prev = NULL;
