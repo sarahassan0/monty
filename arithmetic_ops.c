@@ -47,7 +47,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - subtracts the top element from the second top element of the stack
+ * divtion -  divides the second top element by the top element of the stack
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
@@ -81,6 +81,11 @@ void divtion(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * mul -  multiplies the second top element with the top element of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
@@ -102,6 +107,11 @@ void mul(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * mod - the rest of the division of the second top element by the top element
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;

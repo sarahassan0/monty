@@ -31,8 +31,22 @@ void pchar(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 }
+
+/**
+ * pstr - prints the string starting at the top , followed by a new line
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
+    stack_t *temp;
     (void)line_number;
+
+    temp = *stack;
+    while (temp && temp->n > 0 && temp->n <= 127)
+    {
+    	printf("%c", temp->n);
+	temp = temp->next;
+    }
+    printf("\n");
 }
