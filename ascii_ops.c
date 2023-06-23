@@ -31,6 +31,12 @@ void pchar(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 }
+
+/**
+ * pstr - prints the string starting at the top , followed by a new line
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void pstr(stack_t **stack, unsigned int line_number)
 {
     stack_t *temp;
