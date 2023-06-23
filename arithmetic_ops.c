@@ -46,7 +46,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - subtracts the top element from the second top element of the stack
+ * divtion -  divides the second top element by the top element of the stack
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
