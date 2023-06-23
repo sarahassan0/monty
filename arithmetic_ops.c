@@ -107,7 +107,7 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod -  computes the rest of the division of the second top element by the top element
+ * mod - the rest of the division of the second top element by the top element
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
