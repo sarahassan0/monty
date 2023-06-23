@@ -9,9 +9,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t **head;
-	stack_t *new;
-	stack_t *tail;
-
+	stack_t *new, *tail;
 	head = stack;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -47,7 +45,6 @@ void push(stack_t **stack, unsigned int line_number)
 		*head = new;
 		return;
 	}
-
 	if (interpreter->mode)
 	{
 		new->next = (*head);

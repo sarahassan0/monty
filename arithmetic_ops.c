@@ -82,7 +82,8 @@ void divtion(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul -  multiplies the second top element with the top element of the stack
+ * mul -  multiplies the second top element of the stack with the
+ *   top element of the stack.
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */
@@ -108,7 +109,8 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod - the rest of the division of the second top element by the top element
+ * mod - computes the rest of the division of the second top element of
+ *  the stack by the top element of the stack.
  * @stack: the head of the linked list in stack
  * @line_number: the line number
  */

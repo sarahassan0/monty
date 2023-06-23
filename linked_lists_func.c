@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * stack - .
+ * _stack - .
  * @stack: Pointer to the top of the stack
  * @line_number: Line number of the current operation
  */
@@ -13,7 +13,7 @@ void _stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * queue - .
+ * _queue - .
  * @stack: Pointer to the top of the stack
  * @line_number: Line number of the current operation
  */
