@@ -55,6 +55,21 @@ void rotl(stack_t **stack, unsigned int line_number)
  */
 void roter(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *temp;
 	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		return;
+	}
+	temp = *stack;
+
+	for (; temp->next != NULL; temp = temp->next)
+		;
+
+	temp->prev->next = NULL;
+	temp->next = *stack;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	*stack = temp;
 }
