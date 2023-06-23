@@ -40,14 +40,29 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
 	if (*head == NULL)
 	{
 		*head = new;
 		return;
 	}
-	new->next = (*head);
-	new->next->prev = new;
-	*head = new;
+
+	stack_t *tail;
+
+	if (interpreter->mode)
+	{
+		new->next = (*head);
+		new->next->prev = new;
+		*head = new;
+	}
+	else
+	{
+		tail = *head;
+		while ((tail)->next != NULL)
+			tail = tail->next;
+		new->prev = tail;
+		tail->next = new;
+	}
 }
 
 /**

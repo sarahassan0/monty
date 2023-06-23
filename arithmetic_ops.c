@@ -12,6 +12,7 @@ void add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		fclose(interpreter->file);
 		free(interpreter->line);
+		free_stack(stack);
 		free(interpreter);
 		exit(EXIT_FAILURE);
 	}

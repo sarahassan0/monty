@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 	}
 
 	interpreter->file = monty_file;
+	interpreter->mode = 1;
 	while ((read = getline(&lineptr, &len, monty_file)) != -1)
 	{
 
@@ -75,6 +76,8 @@ int interprete_line(stack_t **stack)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"stack", _stack},
+		{"queue", _queue},
 		{"rotl", rotl},
 		{NULL, NULL}};
 
