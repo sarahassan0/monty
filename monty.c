@@ -79,6 +79,7 @@ int interprete_line(stack_t **stack)
 		{"stack", _stack},
 		{"queue", _queue},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}};
 
 	char *opcode;
