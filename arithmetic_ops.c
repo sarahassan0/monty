@@ -80,6 +80,11 @@ void divtion(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * mul -  multiplies the second top element with the top element of the stack
+ * @stack: the head of the linked list in stack
+ * @line_number: the line number
+ */
 void mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
